@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Design system | Kognai</title>
+  <link rel="stylesheet" href="../tokens/tokens.css">
+  <link rel="stylesheet" href="app.css">
+  <script src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="app wide">
+    <header class="topbar">
+      <a class="icon-btn" href="index.html" aria-label="Back to all screens"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7"/></svg></a>
+      <h1>Design system<span class="sub">Kognai citizen: terracotta, charcoal, cream</span></h1>
+      <button class="icon-btn" type="button" data-toggle-theme aria-label="Switch light or dark"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14A8 8 0 1 1 10 4a6 6 0 0 0 10 10z"/></svg></button>
+    </header>
+    <main id="main">
+      <section class="stack" aria-labelledby="brand"><h2 class="h2" id="brand">Brand</h2>
+        <p class="muted">The palette starts from three brand colours. Terracotta is darkened for text and buttons in light mode and lightened in dark mode, so every text pair passes WCAG AA (at least 4.5 to 1); the tests check it.</p>
+        <div class="swatches"><div class="swatch"><i style="background:#c4623a"></i><div><b>terracotta</b><br><code>#c4623a</code></div></div><div class="swatch"><i style="background:#2a2522"></i><div><b>charcoal</b><br><code>#2a2522</code></div></div><div class="swatch"><i style="background:#f7efe4"></i><div><b>cream</b><br><code>#f7efe4</code></div></div></div>
+      </section>
+      <section class="stack" aria-labelledby="colour"><h2 class="h2" id="colour">Colour tokens</h2>
+      <section class="card" data-theme="light" style="background:var(--color-bg);color:var(--color-text)" aria-labelledby="c-light">
+        <h3 class="h3" id="c-light">Light theme</h3>
+        <div class="swatches"><div class="swatch"><i style="background:var(--color-bg)"></i><div><b>bg</b><br><code>#f7efe4</code></div></div><div class="swatch"><i style="background:var(--color-surface)"></i><div><b>surface</b><br><code>#fffaf3</code></div></div><div class="swatch"><i style="background:var(--color-surface-raised)"></i><div><b>surface-raised</b><br><code>#ffffff</code></div></div><div class="swatch"><i style="background:var(--color-text)"></i><div><b>text</b><br><code>#2a2522</code></div></div><div class="swatch"><i style="background:var(--color-text-muted)"></i><div><b>text-muted</b><br><code>#655a52</code></div></div><div class="swatch"><i style="background:var(--color-primary)"></i><div><b>primary</b><br><code>#a94e2a</code></div></div><div class="swatch"><i style="background:var(--color-primary-hover)"></i><div><b>primary-hover</b><br><code>#8f3f20</code></div></div><div class="swatch"><i style="background:var(--color-on-primary)"></i><div><b>on-primary</b><br><code>#ffffff</code></div></div><div class="swatch"><i style="background:var(--color-primary-soft)"></i><div><b>primary-soft</b><br><code>#f3dccd</code></div></div><div class="swatch"><i style="background:var(--color-on-primary-soft)"></i><div><b>on-primary-soft</b><br><code>#6e2f15</code></div></div><div class="swatch"><i style="background:var(--color-border)"></i><div><b>border</b><br><code>#e2d4c3</code></div></div><div class="swatch"><i style="background:var(--color-danger)"></i><div><b>danger</b><br><code>#b0261b</code></div></div><div class="swatch"><i style="background:var(--color-success)"></i><div><b>success</b><br><code>#2f6a4a</code></div></div><div class="swatch"><i style="background:var(--color-warning)"></i><div><b>warning</b><br><code>#8a5a00</code></div></div><div class="swatch"><i style="background:var(--color-focus)"></i><div><b>focus</b><br><code>#1f5fbf</code></div></div><div class="swatch"><i style="background:var(--color-bubble-citizen)"></i><div><b>bubble-citizen</b><br><code>#ffffff</code></div></div><div class="swatch"><i style="background:var(--color-bubble-me)"></i><div><b>bubble-me</b><br><code>#a94e2a</code></div></div><div class="swatch"><i style="background:var(--color-overlay)"></i><div><b>overlay</b><br><code>#2a2522</code></div></div></div>
+        <div class="card">
+          <p>Text on surface. <span class="muted">Muted text on surface.</span> <span class="error">Danger text.</span></p>
+          <div class="row"><button class="btn btn-primary" type="button">Primary</button><button class="btn btn-secondary" type="button">Secondary</button></div>
+        </div>
+      </section>
+      <section class="card" data-theme="dark" style="background:var(--color-bg);color:var(--color-text)" aria-labelledby="c-dark">
+        <h3 class="h3" id="c-dark">Dark theme</h3>
+        <div class="swatches"><div class="swatch"><i style="background:var(--color-bg)"></i><div><b>bg</b><br><code>#1b1816</code></div></div><div class="swatch"><i style="background:var(--color-surface)"></i><div><b>surface</b><br><code>#262120</code></div></div><div class="swatch"><i style="background:var(--color-surface-raised)"></i><div><b>surface-raised</b><br><code>#302a27</code></div></div><div class="swatch"><i style="background:var(--color-text)"></i><div><b>text</b><br><code>#f5ece1</code></div></div><div class="swatch"><i style="background:var(--color-text-muted)"></i><div><b>text-muted</b><br><code>#bcaea2</code></div></div><div class="swatch"><i style="background:var(--color-primary)"></i><div><b>primary</b><br><code>#e58a62</code></div></div><div class="swatch"><i style="background:var(--color-primary-hover)"></i><div><b>primary-hover</b><br><code>#efa07d</code></div></div><div class="swatch"><i style="background:var(--color-on-primary)"></i><div><b>on-primary</b><br><code>#1b1816</code></div></div><div class="swatch"><i style="background:var(--color-primary-soft)"></i><div><b>primary-soft</b><br><code>#3f2a20</code></div></div><div class="swatch"><i style="background:var(--color-on-primary-soft)"></i><div><b>on-primary-soft</b><br><code>#f6c9b3</code></div></div><div class="swatch"><i style="background:var(--color-border)"></i><div><b>border</b><br><code>#3e3632</code></div></div><div class="swatch"><i style="background:var(--color-danger)"></i><div><b>danger</b><br><code>#ff8a7a</code></div></div><div class="swatch"><i style="background:var(--color-success)"></i><div><b>success</b><br><code>#7fcf9f</code></div></div><div class="swatch"><i style="background:var(--color-warning)"></i><div><b>warning</b><br><code>#f0c060</code></div></div><div class="swatch"><i style="background:var(--color-focus)"></i><div><b>focus</b><br><code>#8ab4ff</code></div></div><div class="swatch"><i style="background:var(--color-bubble-citizen)"></i><div><b>bubble-citizen</b><br><code>#302a27</code></div></div><div class="swatch"><i style="background:var(--color-bubble-me)"></i><div><b>bubble-me</b><br><code>#e58a62</code></div></div><div class="swatch"><i style="background:var(--color-overlay)"></i><div><b>overlay</b><br><code>#000000</code></div></div></div>
+        <div class="card">
+          <p>Text on surface. <span class="muted">Muted text on surface.</span> <span class="error">Danger text.</span></p>
+          <div class="row"><button class="btn btn-primary" type="button">Primary</button><button class="btn btn-secondary" type="button">Secondary</button></div>
+        </div>
+      </section>
+      </section>
+      <section class="card" aria-labelledby="type"><h2 class="h2" id="type">Type</h2>
+        <p class="display">Display, 36 px</p>
+        <p style="font-size:var(--type-size-3xl)">Size 3xl, 36px <span lang="ar" dir="rtl">مرحبا بك</span></p>
+        <p style="font-size:var(--type-size-2xl)">Size 2xl, 28px <span lang="ar" dir="rtl">مرحبا بك</span></p>
+        <p style="font-size:var(--type-size-xl)">Size xl, 22px <span lang="ar" dir="rtl">مرحبا بك</span></p>
+        <p style="font-size:var(--type-size-lg)">Size lg, 18px <span lang="ar" dir="rtl">مرحبا بك</span></p>
+        <p style="font-size:var(--type-size-md)">Size md, 16px <span lang="ar" dir="rtl">مرحبا بك</span></p>
+        <p style="font-size:var(--type-size-sm)">Size sm, 14px <span lang="ar" dir="rtl">مرحبا بك</span></p>
+        <p style="font-size:var(--type-size-xs)">Size xs, 12px <span lang="ar" dir="rtl">مرحبا بك</span></p>
+      </section>
+      <section class="card" aria-labelledby="space"><h2 class="h2" id="space">Space and radius</h2>
+        <div class="scale"><i style="width:var(--space-1);height:var(--space-1)" title="space 1, 4px"></i><i style="width:var(--space-2);height:var(--space-2)" title="space 2, 8px"></i><i style="width:var(--space-3);height:var(--space-3)" title="space 3, 12px"></i><i style="width:var(--space-4);height:var(--space-4)" title="space 4, 16px"></i><i style="width:var(--space-5);height:var(--space-5)" title="space 5, 20px"></i><i style="width:var(--space-6);height:var(--space-6)" title="space 6, 24px"></i><i style="width:var(--space-8);height:var(--space-8)" title="space 8, 32px"></i><i style="width:var(--space-10);height:var(--space-10)" title="space 10, 40px"></i><i style="width:var(--space-12);height:var(--space-12)" title="space 12, 48px"></i></div>
+        <p class="small muted">Space 0: 0px, 1: 4px, 2: 8px, 3: 12px, 4: 16px, 5: 20px, 6: 24px, 8: 32px, 10: 40px, 12: 48px</p>
+        <div class="row"><span class="badge" style="border-radius:var(--radius-sm)">sm 6px</span><span class="badge" style="border-radius:var(--radius-md)">md 10px</span><span class="badge" style="border-radius:var(--radius-lg)">lg 16px</span><span class="badge" style="border-radius:var(--radius-xl)">xl 24px</span><span class="badge" style="border-radius:var(--radius-pill)">pill 999px</span></div>
+      </section>
+      <section class="card" aria-labelledby="comp"><h2 class="h2" id="comp">Components</h2>
+        <h3 class="h3">Buttons</h3>
+        <div class="chips"><button class="btn btn-primary" type="button">Primary</button><button class="btn btn-secondary" type="button">Secondary</button><button class="btn btn-ghost" type="button">Ghost</button><button class="btn btn-danger" type="button">Danger</button><button class="btn btn-primary" type="button" disabled>Disabled</button></div>
+        <h3 class="h3">Chips and badges</h3>
+        <div class="chips"><button class="chip" type="button" aria-pressed="true">Selected</button><button class="chip" type="button" aria-pressed="false">Chip</button><span class="badge">New</span><span class="badge ok">Paid</span></div>
+        <h3 class="h3">Fields</h3>
+        <div class="field"><label for="ds-in">Label</label><input class="input" id="ds-in" placeholder="Placeholder" aria-describedby="ds-h"><span class="hint" id="ds-h">Hint text</span></div>
+        <p class="error">Error text, shown next to its field</p>
+        <label class="switch" for="ds-sw"><span>Switch</span><input type="checkbox" role="switch" id="ds-sw" checked></label>
+        <div class="check"><input type="checkbox" id="ds-ck" checked><label for="ds-ck">Checkbox</label></div>
+        <h3 class="h3">Progress</h3>
+        <div class="progress" role="progressbar" aria-label="Example progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40"><span style="width:40%"></span></div>
+        <h3 class="h3">Chat bubbles</h3>
+        <div class="thread"><div class="msg citizen"><p>Citizen message</p><span class="meta">19:42</span></div><div class="msg me"><p>My message</p><span class="meta">19:43</span></div></div>
+        <h3 class="h3">Avatar</h3>
+        <div class="row"><img class="avatar sm" src="assets/citizen.svg" alt="Citizen avatar, small"><img class="avatar" src="assets/citizen.svg" alt="Citizen avatar, medium"><img class="avatar lg" src="assets/citizen.svg" alt="Citizen avatar, large"></div>
+      </section>
+      <section class="card" aria-labelledby="rules"><h2 class="h2" id="rules">Rules</h2>
+        <ul class="small">
+          <li>Phone first: one column from 360 px, touch targets at least 44 px, the app column stays 480 px wide on large screens.</li>
+          <li>Right to left: layout uses logical properties (inline start and end), direction icons flip, numbers stay Latin digits.</li>
+          <li>Focus is always visible with a 3 px focus ring; every control has a label; every image has alt text.</li>
+          <li>Money is always shown with its cost before it runs, and the monthly cap is visible in the wallet.</li>
+        </ul>
+        <p class="small"><a href="first-run.html">Open the first run</a></p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

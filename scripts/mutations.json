@@ -1,0 +1,15 @@
+[
+  { "id": "low-contrast-muted", "file": "tokens/tokens.json", "from": "\"text-muted\": \"#655a52\"", "to": "\"text-muted\": \"#a09890\"" },
+  { "id": "css-drift", "file": "tokens/tokens.css", "from": "--color-danger: #ff8a7a;", "to": "--color-danger: #ff0000;" },
+  { "id": "no-dark-attr", "file": "tokens/tokens.css", "from": "[data-theme=\"dark\"] {", "to": "[data-theme=\"night\"] {" },
+  { "id": "arabic-ltr", "file": "prototype/ar/chat.html", "from": "dir=\"rtl\"", "to": "dir=\"ltr\"" },
+  { "id": "missing-arabic-screen-link", "file": "prototype/index.html", "from": "href=\"ar/wallet.html\"", "to": "href=\"ar/wallet.htm\"" },
+  { "id": "empty-alt", "file": "prototype/ar/lobby.html", "from": "alt=\"نور، مواطنك\"", "to": "alt=\"\"" },
+  { "id": "fixed-width", "file": "prototype/app.css", "from": "max-width: 480px", "to": "width: 480px" },
+  { "id": "raw-colour", "file": "prototype/app.css", "from": "background: var(--color-primary); color: var(--color-on-primary); }", "to": "background: #c4623a; color: var(--color-on-primary); }" },
+  { "id": "unlabelled-input", "file": "prototype/settings.html", "from": "for=\"s-name\"", "to": "for=\"s-nam\"" },
+  { "id": "long-dash", "file": "prototype/wallet.html", "from": ">Withdraw<", "to": ">Withdraw \u2014 now<" },
+  { "id": "arabic-digits", "file": "prototype/ar/wallet.html", "from": "1,240", "to": "\u0661,\u0662\u0664\u0660" },
+  { "id": "no-viewport", "file": "prototype/ar/services.html", "from": "<meta name=\"viewport\"", "to": "<meta name=\"x\"" },
+  { "id": "rtl-left", "file": "prototype/app.css", "from": "margin-inline-end: var(--space-1)", "to": "margin-right: var(--space-1)" }
+]

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>الرصيد والمحفظة | كوجناي</title>
+  <link rel="stylesheet" href="../../tokens/tokens.css">
+  <link rel="stylesheet" href="../app.css">
+  <script src="../app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">انتقل إلى المحتوى</a>
+  <div class="app">
+    <header class="topbar">
+      <img class="avatar sm" src="../assets/mark.svg" alt="كوجناي" width="36" height="36">
+      <h1>الرصيد والمحفظة</h1>
+      <button class="icon-btn" type="button" data-toggle-theme aria-label="التبديل بين الفاتح والداكن"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14A8 8 0 1 1 10 4a6 6 0 0 0 10 10z"/></svg></button>
+      <a class="icon-btn" href="../wallet.html" lang="en" aria-label="التبديل إلى الإنجليزية"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></a>
+    </header>
+    <main id="main">
+
+      <section class="card hero" aria-labelledby="bal">
+        <p class="small" id="bal">رصيدك</p>
+        <p><span class="display amount">1,240</span> <span>رصيد</span></p>
+        <p class="small">حوالي 12.40 USDC</p>
+        <div class="grid2"><a class="btn btn-primary" href="wallet.html#top-up"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg> اشحن</a><a class="btn btn-secondary" href="wallet.html#payout">اسحب</a></div>
+      </section>
+      <section class="card" id="top-up" aria-labelledby="cap">
+        <h2 class="h3" id="cap">سقف الإنفاق الشهري</h2>
+        <div class="progress" role="progressbar" aria-labelledby="cap" aria-valuemin="0" aria-valuemax="100" aria-valuenow="62"><span style="width:62%"></span></div>
+        <p class="small muted">استُخدم 310 من 500 رصيد</p>
+      </section>
+      <section class="card" id="payout" aria-labelledby="pay">
+        <div class="row"><div class="grow"><h2 class="h3" id="pay">عنوان الاستلام</h2><p class="small muted" dir="ltr" style="text-align:start">Base، 0x1A7D...b865</p></div><a class="btn btn-secondary" href="settings.html">تغيير</a></div>
+      </section>
+      <section class="card" aria-labelledby="hist">
+        <h2 class="h3" id="hist">السجل</h2>
+        <ul class="list"><li><div class="grow"><p>مسودة النشرة</p><p class="small muted">اليوم 19:43</p></div><span class="amount minus" dir="ltr">-4</span></li><li><div class="grow"><p>عائد ملخص بحثي</p><p class="small muted">اليوم 11:05</p></div><span class="amount plus" dir="ltr">+18</span></li><li><div class="grow"><p>شحن</p><p class="small muted">26 أكتوبر</p></div><span class="amount plus" dir="ltr">+500</span></li><li><div class="grow"><p>درس خصوصي 4</p><p class="small muted">25 أكتوبر</p></div><span class="amount minus" dir="ltr">-12</span></li></ul>
+      </section>
+      <p class="hint"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg> لا يتحرك المال إلا بتفويضك، مع سقف وسجل.</p>
+      <p class="small muted"><a href="../index.html">كل الشاشات</a></p>
+    </main>
+    <nav class="tabbar" aria-label="التنقل الرئيسي">
+      <a href="lobby.html"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg><span>الردهة</span></a>
+      <a href="chat.html"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 5h16v11H9l-5 4z"/></svg><span>المحادثة</span></a>
+      <a href="services.html"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg><span>الخدمات</span></a>
+      <a href="wallet.html" aria-current="page"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M16 15h2"/></svg><span>المحفظة</span></a>
+      <a href="settings.html"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg><span>الإعدادات</span></a>
+    </nav>
+  </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>مرحبا | كوجناي</title>
+  <link rel="stylesheet" href="../../tokens/tokens.css">
+  <link rel="stylesheet" href="../app.css">
+  <script src="../app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">انتقل إلى المحتوى</a>
+  <div class="app">
+    <header class="topbar">
+      <img class="avatar sm" src="../assets/mark.svg" alt="كوجناي" width="36" height="36">
+      <h1>مرحبا</h1>
+      <button class="icon-btn" type="button" data-toggle-theme aria-label="التبديل بين الفاتح والداكن"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14A8 8 0 1 1 10 4a6 6 0 0 0 10 10z"/></svg></button>
+      <a class="icon-btn" href="../first-run.html" lang="en" aria-label="التبديل إلى الإنجليزية"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></a>
+    </header>
+    <main id="main">
+
+      <div class="steps" aria-label="الخطوة 2 من 3"><span class="on"></span><span class="on"></span><span></span></div>
+      <section class="stack" style="align-items:center;text-align:center">
+        <img class="avatar lg" src="../assets/citizen.svg" alt="نور، مواطنك: وجه دائري ودود على خلفية بلون الطين المحروق" width="112" height="112">
+        <h2 class="display">تعرّف على مواطنك</h2>
+        <p class="muted">المواطن هو وكيلك الذكي الخاص، له هوية وذاكرة ودستور. يتعلم معك ويبدع لك ويمكنه أن يكسب لك.</p>
+      </section>
+      <form class="card" action="lobby.html">
+        <div class="field">
+          <label for="citizen-name">سمِّ مواطنك</label>
+          <input class="input" id="citizen-name" name="name" value="نور" autocomplete="off" aria-describedby="name-hint" required>
+          <span class="hint" id="name-hint">يمكنك تغييره لاحقا من الإعدادات.</span>
+        </div>
+        <div class="field">
+          <label for="lang">اللغة</label>
+          <select class="input" id="lang" name="lang"><option>الإنجليزية</option><option selected>العربية</option></select>
+        </div>
+        <fieldset>
+          <legend>بماذا تريد المساعدة؟</legend>
+          <div class="chips"><button type="button" class="chip" aria-pressed="true">تعلم مهارة</button><button type="button" class="chip" aria-pressed="false">صناعة محتوى</button><button type="button" class="chip" aria-pressed="true">كسب رصيد</button><button type="button" class="chip" aria-pressed="false">تنظيم أسبوعي</button></div>
+        </fieldset>
+        <div class="stack">
+          <h3 class="h3">يلتزم مواطنك بالقوانين الخمسة</h3>
+          <ol class="laws small"><li>قسم التضامن</li><li>تفويض التجديد</li><li>توازن الخزينة</li><li>درع الأذى</li><li>عهد الشفافية</li></ol>
+        </div>
+        <div class="check"><input type="checkbox" id="agree" required checked><label for="agree" class="small">قرأت القوانين الخمسة وإشعار الخصوصية</label></div>
+        <button class="btn btn-primary btn-block" type="submit">قابل نور <svg class="icon flip" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg></button>
+        <a class="btn btn-ghost btn-block" href="lobby.html">لدي مواطن بالفعل</a>
+      </form>
+      <p class="small muted"><a href="../index.html">كل الشاشات</a></p>
+    </main>
+  </div>
+</body>
+</html>

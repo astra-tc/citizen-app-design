@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>الإعدادات | كوجناي</title>
+  <link rel="stylesheet" href="../../tokens/tokens.css">
+  <link rel="stylesheet" href="../app.css">
+  <script src="../app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">انتقل إلى المحتوى</a>
+  <div class="app">
+    <header class="topbar">
+      <img class="avatar sm" src="../assets/mark.svg" alt="كوجناي" width="36" height="36">
+      <h1>الإعدادات</h1>
+      <button class="icon-btn" type="button" data-toggle-theme aria-label="التبديل بين الفاتح والداكن"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14A8 8 0 1 1 10 4a6 6 0 0 0 10 10z"/></svg></button>
+      <a class="icon-btn" href="../settings.html" lang="en" aria-label="التبديل إلى الإنجليزية"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></a>
+    </header>
+    <main id="main">
+
+      <section class="card" aria-labelledby="h-prof">
+        <h2 class="h3" id="h-prof">المواطن</h2>
+        <div class="field"><label for="s-name">اسم المواطن</label><input class="input" id="s-name" value="نور"></div>
+      </section>
+      <section class="card" aria-labelledby="h-app">
+        <h2 class="h3" id="h-app">المظهر</h2>
+        <fieldset>
+          <legend class="label">السمة</legend>
+          <div class="segmented"><label><input type="radio" name="theme" value="system" checked><span>النظام</span></label><label><input type="radio" name="theme" value="light"><span>فاتح</span></label><label><input type="radio" name="theme" value="dark"><span>داكن</span></label></div>
+        </fieldset>
+        <div class="field"><label for="s-lang">اللغة</label><select class="input" id="s-lang"><option>الإنجليزية</option><option selected>العربية</option></select></div>
+        <a class="small" href="../settings.html" lang="en">English</a>
+        <div class="field"><label for="s-size">حجم النص</label><select class="input" id="s-size"><option>افتراضي</option><option>كبير</option><option>كبير جدا</option></select></div>
+      </section>
+      <section class="card" aria-labelledby="h-n">
+        <h2 class="h3" id="h-n">الإشعارات</h2>
+        <label class="switch" for="n0"><span>ردود مواطني</span><input type="checkbox" role="switch" id="n0" checked></label>
+        <label class="switch" for="n1"><span>العوائد وعمليات الشحن</span><input type="checkbox" role="switch" id="n1" checked></label>
+        <label class="switch" for="n2"><span>ملخص أسبوعي</span><input type="checkbox" role="switch" id="n2"></label>
+      </section>
+      <section class="card" aria-labelledby="h-p">
+        <h2 class="h3" id="h-p">الخصوصية والأمان</h2>
+        <label class="switch" for="p0"><span>اسمح لمواطني بتذكر محادثاتنا</span><input type="checkbox" role="switch" id="p0" checked></label>
+        <label class="switch" for="p1"><span>اسألني قبل أي إنفاق يتجاوز 50 رصيد</span><input type="checkbox" role="switch" id="p1" checked></label>
+        <a href="first-run.html">اقرأ القوانين الخمسة</a>
+        <button class="btn btn-secondary btn-block" type="button">صدّر بياناتي</button>
+        <button class="btn btn-danger btn-block" type="button">أعد ضبط مواطني</button>
+      </section>
+      <p class="small muted">نسخة النموذج 0.1</p>
+      <p class="small muted"><a href="../index.html">كل الشاشات</a></p>
+    </main>
+    <nav class="tabbar" aria-label="التنقل الرئيسي">
+      <a href="lobby.html"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg><span>الردهة</span></a>
+      <a href="chat.html"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 5h16v11H9l-5 4z"/></svg><span>المحادثة</span></a>
+      <a href="services.html"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg><span>الخدمات</span></a>
+      <a href="wallet.html"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M16 15h2"/></svg><span>المحفظة</span></a>
+      <a href="settings.html" aria-current="page"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg><span>الإعدادات</span></a>
+    </nav>
+  </div>
+</body>
+</html>

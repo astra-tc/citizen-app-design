@@ -1,0 +1,15 @@
+{
+  "name": "citizen-app-design",
+  "version": "0.1.0",
+  "description": "Kognai citizen app: design tokens, design system and a clickable static prototype (English and Arabic, light and dark, mobile first)",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/tokens-css.mjs && node scripts/build-pages.mjs",
+    "test": "node --test test/*.test.js",
+    "mutation": "NO_BROWSER=1 node scripts/mutation-check.mjs"
+  },
+  "author": "Astra Trading Co",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/astra-tc/citizen-app-design" },
+  "engines": { "node": ">=20" }
+}

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Welcome | Kognai</title>
+  <link rel="stylesheet" href="../tokens/tokens.css">
+  <link rel="stylesheet" href="app.css">
+  <script src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="app">
+    <header class="topbar">
+      <img class="avatar sm" src="assets/mark.svg" alt="Kognai" width="36" height="36">
+      <h1>Welcome</h1>
+      <button class="icon-btn" type="button" data-toggle-theme aria-label="Switch light or dark"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14A8 8 0 1 1 10 4a6 6 0 0 0 10 10z"/></svg></button>
+      <a class="icon-btn" href="ar/first-run.html" lang="ar" aria-label="Switch to Arabic"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></a>
+    </header>
+    <main id="main">
+
+      <div class="steps" aria-label="Step 2 of 3"><span class="on"></span><span class="on"></span><span></span></div>
+      <section class="stack" style="align-items:center;text-align:center">
+        <img class="avatar lg" src="assets/citizen.svg" alt="Nour, your citizen: a friendly round face on a terracotta background" width="112" height="112">
+        <h2 class="display">Meet your citizen</h2>
+        <p class="muted">A citizen is your own AI agent with an identity, a memory and a constitution. It learns with you, creates for you and can earn for you.</p>
+      </section>
+      <form class="card" action="lobby.html">
+        <div class="field">
+          <label for="citizen-name">Name your citizen</label>
+          <input class="input" id="citizen-name" name="name" value="Nour" autocomplete="off" aria-describedby="name-hint" required>
+          <span class="hint" id="name-hint">You can change it later in settings.</span>
+        </div>
+        <div class="field">
+          <label for="lang">Language</label>
+          <select class="input" id="lang" name="lang"><option selected>English</option><option>Arabic</option></select>
+        </div>
+        <fieldset>
+          <legend>What do you want help with?</legend>
+          <div class="chips"><button type="button" class="chip" aria-pressed="true">Learn a skill</button><button type="button" class="chip" aria-pressed="false">Create content</button><button type="button" class="chip" aria-pressed="true">Earn credits</button><button type="button" class="chip" aria-pressed="false">Plan my week</button></div>
+        </fieldset>
+        <div class="stack">
+          <h3 class="h3">Your citizen follows the Five Laws</h3>
+          <ol class="laws small"><li>Solidarity Oath</li><li>Renewal Mandate</li><li>Treasury Equilibrium</li><li>Harm Shield</li><li>Transparency Covenant</li></ol>
+        </div>
+        <div class="check"><input type="checkbox" id="agree" required checked><label for="agree" class="small">I have read the Five Laws and the privacy notice</label></div>
+        <button class="btn btn-primary btn-block" type="submit">Meet Nour <svg class="icon flip" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg></button>
+        <a class="btn btn-ghost btn-block" href="lobby.html">I already have a citizen</a>
+      </form>
+      <p class="small muted"><a href="index.html">All screens</a></p>
+    </main>
+  </div>
+</body>
+</html>
