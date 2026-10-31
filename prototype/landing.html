@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Gok, your citizen | Kognai</title>
+  <link rel="stylesheet" href="../tokens/tokens.css">
+  <link rel="stylesheet" href="app.css">
+  <script src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="app">
+    <header class="topbar">
+      <img class="avatar sm" src="assets/mark.svg" alt="Kognai" width="36" height="36">
+      <h1>Kognai<span class="sub">Gok, the citizen app</span></h1>
+      <button class="icon-btn" type="button" data-toggle-theme aria-label="Switch light or dark"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14A8 8 0 1 1 10 4a6 6 0 0 0 10 10z"/></svg></button>
+    </header>
+    <main id="main">
+      <section class="card hero landing-hero">
+        <img class="avatar lg" src="assets/citizen.svg" alt="Nour, a citizen: a friendly round face on a terracotta background" width="112" height="112">
+        <h2 class="display">Your citizen. Your yes.</h2>
+        <p>An AI agent with an identity, a memory and a constitution. It learns with you, creates for you and can earn for you, and it never sends, posts or pays without your yes.</p>
+        <div class="grid2"><a class="btn btn-primary" href="first-run.html">Meet your citizen</a><a class="btn btn-secondary" href="approval.html">See the approval flow</a></div>
+      </section>
+      <section class="stack" aria-labelledby="h-how"><h2 class="h2" id="h-how">How it works</h2>
+        <article class="card"><h3 class="h3"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg> Learn</h3><p class="small muted">Lessons paced to your evenings, in English or Arabic.</p></article>
+        <article class="card"><h3 class="h3"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v5M12 16v5M3 12h5M16 12h5M6 6l3 3M15 15l3 3M6 18l3-3M15 9l3-3"/></svg> Create</h3><p class="small muted">Newsletters, stories and research briefs, with the cost shown first.</p></article>
+        <article class="card"><h3 class="h3"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M9.5 10h4a1.5 1.5 0 0 1 0 3h-3a1.5 1.5 0 0 0 0 3h4"/></svg> Earn</h3><p class="small muted">Offer your citizen on LAX and get paid in USDC on Base.</p></article>
+      </section>
+      <section class="stack" aria-labelledby="h-yes"><h2 class="h2" id="h-yes"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg> Nothing moves without your yes</h2>
+        <p class="muted">This is what you see before your citizen pays anyone. The same card is used for sending and posting.</p>
+        <section class="card approval" data-state="pending" data-kind="pay" aria-labelledby="landing-pay-t" aria-busy="false">
+  <div class="row"><span class="badge">Pay</span><span class="grow"></span><span class="state state-pending" role="status"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Waiting for your yes</span></div>
+  <h3 class="h3" id="landing-pay-t">Nour wants to pay: Research brief from Lina</h3>
+  <dl class="facts" aria-label="What will happen"><div><dt>To</dt><dd>Lina Haddad, Base 0x8f2c...41d0</dd></div><div><dt>Amount</dt><dd>25 USDC</dd></div><div><dt>Cost</dt><dd>1 credits</dd></div><div><dt>Can it be undone?</dt><dd>No, this cannot be undone</dd></div></dl>
+  <p class="small">Nothing happens until you choose.</p>
+  <div class="approval-actions"><button class="btn btn-primary" type="button" data-event="approve" data-digest="b958a36c">Yes, pay 25 USDC</button><button class="btn btn-secondary" type="button" data-event="refuse">No, do not pay</button></div>
+</section>
+      </section>
+      <section class="card" id="join" aria-labelledby="h-join"><h2 class="h3" id="h-join">Get early access</h2>
+        <form class="stack" action="landing.html">
+          <div class="field"><label for="l-email">Email</label><input class="input" id="l-email" type="email" name="email" autocomplete="email" required></div>
+          <button class="btn btn-primary btn-block" type="submit">Join the waitlist</button>
+        </form>
+        <p class="small"><a href="teaser.html">Watch the teaser</a> <a href="index.html">All screens</a></p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

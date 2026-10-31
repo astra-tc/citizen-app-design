@@ -48,6 +48,12 @@
   --radius-lg: 16px;
   --radius-xl: 24px;
   --radius-pill: 999px;
+  --status-pending: var(--color-warning);
+  --status-running: var(--color-primary);
+  --status-confirmed: var(--color-success);
+  --status-refused: var(--color-text-muted);
+  --status-failed: var(--color-danger);
+  --status-cancelled: var(--color-text-muted);
 }
 
 @media (prefers-color-scheme: dark) {

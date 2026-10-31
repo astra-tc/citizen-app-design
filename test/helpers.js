@@ -11,7 +11,8 @@ export const exists = (...p) => existsSync(P(...p));
 export const SCREENS = ['first-run', 'lobby', 'chat', 'services', 'wallet', 'settings'];
 export const EN = SCREENS.map((s) => `prototype/${s}.html`);
 export const AR = SCREENS.map((s) => `prototype/ar/${s}.html`);
-export const ALL_PAGES = ['prototype/index.html', 'prototype/design-system.html', ...EN, ...AR];
+export const PUBLIC = ['prototype/approval.html', 'prototype/ar/approval.html', 'prototype/landing.html', 'prototype/teaser.html'];
+export const ALL_PAGES = ['prototype/index.html', 'prototype/design-system.html', ...EN, ...AR, ...PUBLIC];
 export const REQUIRED_COLORS = ['bg', 'surface', 'text', 'text-muted', 'primary', 'on-primary', 'border', 'danger'];
 
 // WCAG 2.x relative luminance and contrast ratio

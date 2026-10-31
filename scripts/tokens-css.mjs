@@ -3,7 +3,8 @@ import { readFileSync, writeFileSync } from 'node:fs';
 
 export function tokensToCss(t) {
   const block = (o, p) => Object.entries(o).map(([k, v]) => `  --${p}-${k}: ${v};`).join('\n');
-  const base = [block(t.type, 'type'), block(t.space, 'space'), block(t.radius, 'radius')].join('\n');
+  const status = Object.entries(t.status || {}).map(([k, v]) => `  --status-${k}: var(--color-${v});`);
+  const base = [block(t.type, 'type'), block(t.space, 'space'), block(t.radius, 'radius'), ...status].join('\n');
   const light = block(t.color.light, 'color');
   const dark = block(t.color.dark, 'color');
   return `/* Kognai citizen design tokens. Generated from tokens.json by scripts/tokens-css.mjs. Do not edit by hand. */

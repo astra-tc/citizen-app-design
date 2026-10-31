@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>الموافقات | كوجناي</title>
+  <link rel="stylesheet" href="../../tokens/tokens.css">
+  <link rel="stylesheet" href="../app.css">
+  <script src="../app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">انتقل إلى المحتوى</a>
+  <div class="app">
+    <header class="topbar">
+      <a class="icon-btn" href="chat.html" aria-label="رجوع"><svg class="icon flip" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7"/></svg></a>
+      <h1>الموافقات</h1>
+      <button class="icon-btn" type="button" data-toggle-theme aria-label="التبديل بين الفاتح والداكن"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14A8 8 0 1 1 10 4a6 6 0 0 0 10 10z"/></svg></button>
+      <a class="icon-btn" href="../approval.html" lang="en" aria-label="التبديل إلى الإنجليزية"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></a>
+    </header>
+    <main id="main">
+
+      <p class="muted">كل إجراء يرسل أو ينشر أو يدفع يعرض ما سيحدث وينتظر موافقتك الصريحة. هذا طلب من كل نوع، ثم دفعة واحدة في كل حالة.</p>
+      <section class="stack" aria-labelledby="h-kinds"><h2 class="h2" id="h-kinds">بانتظار موافقتك</h2>
+<section class="card approval" data-state="pending" data-kind="pay" aria-labelledby="pay-pending-t" aria-busy="false">
+  <div class="row"><span class="badge">دفع</span><span class="grow"></span><span class="state state-pending" role="status"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>بانتظار موافقتك</span></div>
+  <h3 class="h3" id="pay-pending-t">تريد نور الدفع: ملخص بحثي من لينا</h3>
+  <dl class="facts" aria-label="ما الذي سيحدث"><div><dt>إلى</dt><dd>لينا حداد، Base 0x8f2c...41d0</dd></div><div><dt>المبلغ</dt><dd>25 USDC</dd></div><div><dt>التكلفة</dt><dd>1 رصيد</dd></div><div><dt>هل يمكن التراجع؟</dt><dd>لا، لا يمكن التراجع</dd></div></dl>
+  <p class="small">لن يحدث شيء حتى تختار.</p>
+  <div class="approval-actions"><button class="btn btn-primary" type="button" data-event="approve" data-digest="f56fed44">نعم، ادفع 25 USDC</button><button class="btn btn-secondary" type="button" data-event="refuse">لا، لا تدفع</button></div>
+</section>
+<section class="card approval" data-state="pending" data-kind="post" aria-labelledby="post-pending-t" aria-busy="false">
+  <div class="row"><span class="badge">نشر</span><span class="grow"></span><span class="state state-pending" role="status"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>بانتظار موافقتك</span></div>
+  <h3 class="h3" id="post-pending-t">تريد نور النشر: نشرة الجمعة</h3>
+  <dl class="facts" aria-label="ما الذي سيحدث"><div><dt>إلى</dt><dd>نشرتك، 212 قارئا</dd></div><div><dt>المحتوى</dt><dd>3 أقسام و220 كلمة، مجدولة الجمعة 09:00</dd></div><div><dt>التكلفة</dt><dd>4 رصيد</dd></div><div><dt>هل يمكن التراجع؟</dt><dd>نعم، خلال 10 دقائق</dd></div></dl>
+  <p class="small">لن يحدث شيء حتى تختار.</p>
+  <div class="approval-actions"><button class="btn btn-primary" type="button" data-event="approve" data-digest="7a006783">نعم، انشرها</button><button class="btn btn-secondary" type="button" data-event="refuse">لا، لا تنشر</button></div>
+</section>
+<section class="card approval" data-state="pending" data-kind="send" aria-labelledby="send-pending-t" aria-busy="false">
+  <div class="row"><span class="badge">إرسال</span><span class="grow"></span><span class="state state-pending" role="status"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>بانتظار موافقتك</span></div>
+  <h3 class="h3" id="send-pending-t">تريد نور إرسال رسالة: رد على عمر</h3>
+  <dl class="facts" aria-label="ما الذي سيحدث"><div><dt>إلى</dt><dd>عمر، بالبريد</dd></div><div><dt>المحتوى</dt><dd>شكرا عمر، الخميس 10:00 يناسبني.</dd></div><div><dt>التكلفة</dt><dd>0 رصيد</dd></div><div><dt>هل يمكن التراجع؟</dt><dd>لا، لا يمكن التراجع</dd></div></dl>
+  <p class="small">لن يحدث شيء حتى تختار.</p>
+  <div class="approval-actions"><button class="btn btn-primary" type="button" data-event="approve" data-digest="08fc8c09">نعم، أرسلها</button><button class="btn btn-secondary" type="button" data-event="refuse">لا، لا ترسل</button></div>
+</section>
+      </section>
+      <section class="stack" id="states" aria-labelledby="h-states"><h2 class="h2" id="h-states">كل حالات الدفعة</h2>
+        <div class="gallery"><section class="card approval" data-state="pending" data-kind="pay" aria-labelledby="pay-pending-g-t" aria-busy="false">
+  <div class="row"><span class="badge">دفع</span><span class="grow"></span><span class="state state-pending" role="status"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>بانتظار موافقتك</span></div>
+  <h3 class="h3" id="pay-pending-g-t">تريد نور الدفع: ملخص بحثي من لينا</h3>
+  <dl class="facts" aria-label="ما الذي سيحدث"><div><dt>إلى</dt><dd>لينا حداد، Base 0x8f2c...41d0</dd></div><div><dt>المبلغ</dt><dd>25 USDC</dd></div><div><dt>التكلفة</dt><dd>1 رصيد</dd></div><div><dt>هل يمكن التراجع؟</dt><dd>لا، لا يمكن التراجع</dd></div></dl>
+  <p class="small">لن يحدث شيء حتى تختار.</p>
+  <div class="approval-actions"><button class="btn btn-primary" type="button" data-event="approve" data-digest="f56fed44">نعم، ادفع 25 USDC</button><button class="btn btn-secondary" type="button" data-event="refuse">لا، لا تدفع</button></div>
+</section>
+<section class="card approval" data-state="running" data-kind="pay" aria-labelledby="pay-running-g-t" aria-busy="true">
+  <div class="row"><span class="badge">دفع</span><span class="grow"></span><span class="state state-running" role="status"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3a9 9 0 1 0 9 9"/></svg>جار التنفيذ</span></div>
+  <h3 class="h3" id="pay-running-g-t">تريد نور الدفع: ملخص بحثي من لينا</h3>
+  <dl class="facts" aria-label="ما الذي سيحدث"><div><dt>إلى</dt><dd>لينا حداد، Base 0x8f2c...41d0</dd></div><div><dt>المبلغ</dt><dd>25 USDC</dd></div><div><dt>التكلفة</dt><dd>1 رصيد</dd></div><div><dt>هل يمكن التراجع؟</dt><dd>لا، لا يمكن التراجع</dd></div></dl>
+  <p class="small">جار الدفع.</p>
+  
+</section>
+<section class="card approval" data-state="confirmed" data-kind="pay" aria-labelledby="pay-confirmed-g-t" aria-busy="false">
+  <div class="row"><span class="badge">دفع</span><span class="grow"></span><span class="state state-confirmed" role="status"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>تم</span></div>
+  <h3 class="h3" id="pay-confirmed-g-t">تريد نور الدفع: ملخص بحثي من لينا</h3>
+  <dl class="facts" aria-label="ما الذي سيحدث"><div><dt>إلى</dt><dd>لينا حداد، Base 0x8f2c...41d0</dd></div><div><dt>المبلغ</dt><dd>25 USDC</dd></div><div><dt>التكلفة</dt><dd>1 رصيد</dd></div><div><dt>هل يمكن التراجع؟</dt><dd>لا، لا يمكن التراجع</dd></div></dl>
+  <p class="small">دفعت.</p><p class="small muted">الإيصال: <span dir="ltr">Base tx 0x504e...6baa</span></p>
+  <div class="approval-actions"><a class="btn btn-ghost" href="chat.html">العودة إلى المحادثة</a></div>
+</section>
+<section class="card approval" data-state="refused" data-kind="pay" aria-labelledby="pay-refused-g-t" aria-busy="false">
+  <div class="row"><span class="badge">دفع</span><span class="grow"></span><span class="state state-refused" role="status"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M6 18L18 6"/></svg>رفضت</span></div>
+  <h3 class="h3" id="pay-refused-g-t">تريد نور الدفع: ملخص بحثي من لينا</h3>
+  <dl class="facts" aria-label="ما الذي سيحدث"><div><dt>إلى</dt><dd>لينا حداد، Base 0x8f2c...41d0</dd></div><div><dt>المبلغ</dt><dd>25 USDC</dd></div><div><dt>التكلفة</dt><dd>1 رصيد</dd></div><div><dt>هل يمكن التراجع؟</dt><dd>لا، لا يمكن التراجع</dd></div></dl>
+  <p class="small">لم يدفع شيء.</p><p class="small muted">السبب: اخترت لا</p>
+  <div class="approval-actions"><a class="btn btn-ghost" href="chat.html">العودة إلى المحادثة</a></div>
+</section>
+<section class="card approval" data-state="failed" data-kind="pay" aria-labelledby="pay-failed-g-t" aria-busy="false">
+  <div class="row"><span class="badge">دفع</span><span class="grow"></span><span class="state state-failed" role="alert"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l10 18H2z"/><path d="M12 10v4M12 17v1"/></svg>لم تنجح العملية</span></div>
+  <h3 class="h3" id="pay-failed-g-t">تريد نور الدفع: ملخص بحثي من لينا</h3>
+  <dl class="facts" aria-label="ما الذي سيحدث"><div><dt>إلى</dt><dd>لينا حداد، Base 0x8f2c...41d0</dd></div><div><dt>المبلغ</dt><dd>25 USDC</dd></div><div><dt>التكلفة</dt><dd>1 رصيد</dd></div><div><dt>هل يمكن التراجع؟</dt><dd>لا، لا يمكن التراجع</dd></div></dl>
+  <p class="small">لم يتحرك أي مال.</p><p class="error">السبب: عنوان الاستلام لم يقبل USDC على Base</p>
+  <p class="small">سنسألك مرة أخرى قبل أن يحدث أي شيء.</p><div class="approval-actions"><button class="btn btn-primary" type="button" data-event="retry">حاول مرة أخرى</button><button class="btn btn-secondary" type="button" data-event="cancel">إلغاء</button></div>
+</section>
+<section class="card approval" data-state="cancelled" data-kind="pay" aria-labelledby="pay-cancelled-g-t" aria-busy="false">
+  <div class="row"><span class="badge">دفع</span><span class="grow"></span><span class="state state-cancelled" role="status"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg>ألغي</span></div>
+  <h3 class="h3" id="pay-cancelled-g-t">تريد نور الدفع: ملخص بحثي من لينا</h3>
+  <dl class="facts" aria-label="ما الذي سيحدث"><div><dt>إلى</dt><dd>لينا حداد، Base 0x8f2c...41d0</dd></div><div><dt>المبلغ</dt><dd>25 USDC</dd></div><div><dt>التكلفة</dt><dd>1 رصيد</dd></div><div><dt>هل يمكن التراجع؟</dt><dd>لا، لا يمكن التراجع</dd></div></dl>
+  <p class="small">لم يدفع شيء.</p><p class="small muted">السبب: سحبت نور الطلب قبل أن تجيب</p>
+  <div class="approval-actions"><a class="btn btn-ghost" href="chat.html">العودة إلى المحادثة</a></div>
+</section></div>
+      </section>
+      <section class="stack" id="live" aria-labelledby="h-live"><h2 class="h2" id="h-live">جربها</h2>
+        <p class="hint">اضغط نعم أو لا. في المرة الثانية التي تضغط فيها نعم تفشل الدفعة، لترى حالة الفشل وإعادة المحاولة.</p>
+        <div data-live-demo="ar" aria-live="polite"><section class="card approval" data-state="pending" data-kind="pay" aria-labelledby="pay-pending-live-t" aria-busy="false">
+  <div class="row"><span class="badge">دفع</span><span class="grow"></span><span class="state state-pending" role="status"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>بانتظار موافقتك</span></div>
+  <h3 class="h3" id="pay-pending-live-t">تريد نور الدفع: ملخص بحثي من لينا</h3>
+  <dl class="facts" aria-label="ما الذي سيحدث"><div><dt>إلى</dt><dd>لينا حداد، Base 0x8f2c...41d0</dd></div><div><dt>المبلغ</dt><dd>25 USDC</dd></div><div><dt>التكلفة</dt><dd>1 رصيد</dd></div><div><dt>هل يمكن التراجع؟</dt><dd>لا، لا يمكن التراجع</dd></div></dl>
+  <p class="small">لن يحدث شيء حتى تختار.</p>
+  <div class="approval-actions"><button class="btn btn-primary" type="button" data-event="approve" data-digest="f56fed44">نعم، ادفع 25 USDC</button><button class="btn btn-secondary" type="button" data-event="refuse">لا، لا تدفع</button></div>
+</section></div>
+      </section>
+      <script type="module">
+        import { createFlow, transition, execute, renderApproval } from '../approval.mjs';
+        const box = document.querySelector('[data-live-demo]'), lang = box.dataset.liveDemo;
+        const req = {"id":"pay-live","kind":"pay","title":"ملخص بحثي من لينا","to":"لينا حداد، Base 0x8f2c...41d0","amount":"25","currency":"USDC","cost_credits":1,"reversible":false};
+        let flow = createFlow(req), yesCount = 0;
+        const draw = () => { box.innerHTML = renderApproval(flow, lang); };
+        box.addEventListener('click', async (e) => {
+          const b = e.target.closest('[data-event]'); if (!b) return;
+          const ev = b.dataset.event;
+          if (ev === 'approve') { flow = transition(flow, 'approve', { by: 'user', digest: b.dataset.digest }); draw(); yesCount++;
+            await new Promise((r) => setTimeout(r, 900));
+            flow = await execute(flow, async () => { if (yesCount === 2) throw new Error("عنوان الاستلام لم يقبل USDC على Base"); return "Base tx 0x504e...6baa"; });
+          } else if (ev === 'refuse') flow = transition(flow, 'refuse', { by: 'user' });
+          else flow = transition(flow, ev, { by: 'user' });
+          draw();
+        });
+        box.addEventListener('click', (e) => { if (e.target.closest('a.btn')) { e.preventDefault(); flow = createFlow(req); draw(); } });
+      </script>
+      <p class="small muted"><a href="../index.html">كل الشاشات</a></p>
+    </main>
+    <nav class="tabbar" aria-label="التنقل الرئيسي">
+      <a href="lobby.html"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg><span>الردهة</span></a>
+      <a href="chat.html"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 5h16v11H9l-5 4z"/></svg><span>المحادثة</span></a>
+      <a href="services.html"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg><span>الخدمات</span></a>
+      <a href="wallet.html"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M16 15h2"/></svg><span>المحفظة</span></a>
+      <a href="settings.html"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg><span>الإعدادات</span></a>
+    </nav>
+  </div>
+</body>
+</html>

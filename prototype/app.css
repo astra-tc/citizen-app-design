@@ -134,3 +134,30 @@ code { font-size: var(--type-size-sm); }
   .wide { max-width: 960px; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* Approval flow: one card for send, post and pay, six states. Tones come from the --status-* tokens. */
+.approval { border-inline-start: 4px solid var(--status-pending); }
+.approval[data-state="running"] { border-inline-start-color: var(--status-running); }
+.approval[data-state="confirmed"] { border-inline-start-color: var(--status-confirmed); }
+.approval[data-state="refused"], .approval[data-state="cancelled"] { border-inline-start-color: var(--color-border); }
+.approval[data-state="failed"] { border-inline-start-color: var(--status-failed); }
+.state { display: inline-flex; align-items: center; gap: var(--space-1); padding: 2px var(--space-2); border-radius: var(--radius-pill); border: 1px solid currentColor; background: var(--color-surface); font-size: var(--type-size-sm); font-weight: var(--type-weight-bold); }
+.state .icon { width: 16px; height: 16px; }
+.state-pending { color: var(--status-pending); }
+.state-running { color: var(--status-running); }
+.state-confirmed { color: var(--status-confirmed); }
+.state-refused { color: var(--status-refused); }
+.state-failed { color: var(--status-failed); }
+.state-cancelled { color: var(--status-cancelled); }
+.facts { margin: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+.facts div { display: flex; flex-wrap: wrap; gap: var(--space-2); justify-content: space-between; border-block-end: 1px solid var(--color-border); padding-block-end: var(--space-2); }
+.facts dt { color: var(--color-text-muted); font-size: var(--type-size-sm); }
+.facts dd { margin: 0; font-weight: var(--type-weight-medium); overflow-wrap: anywhere; text-align: end; }
+.approval-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.approval-actions .btn { flex: 1 1 140px; }
+.gallery { display: flex; flex-direction: column; gap: var(--space-4); }
+
+/* Public pages: landing and teaser share the app components */
+.landing-hero { text-align: center; align-items: center; }
+.landing-hero .avatar { margin-inline: auto; }
+.teaser { min-height: 80vh; justify-content: center; text-align: center; align-items: center; }

@@ -1,6 +1,7 @@
 // Generates the static prototype (prototype/*.html and prototype/ar/*.html) from one source,
 // so the English and Arabic screens stay identical in structure. Run: npm run build
 import { writeFileSync, mkdirSync, readFileSync } from 'node:fs';
+import { createFlow, transition, renderApproval, statusPill, STATES } from '../prototype/approval.mjs';
 
 const ROOT = new URL('../prototype/', import.meta.url);
 export const SCREENS = ['first-run', 'lobby', 'chat', 'services', 'wallet', 'settings'];
@@ -29,7 +30,7 @@ export const T = {
   en: {
     lang: 'en', dir: 'ltr', other: 'ar', otherName: 'العربية', otherLabel: 'Switch to Arabic',
     app: 'Kognai', skip: 'Skip to content', index: 'All screens',
-    titles: { 'first-run': 'Welcome', lobby: 'Lobby', chat: 'Chat with Nour', services: 'Services', wallet: 'Credits and wallet', settings: 'Settings' },
+    titles: { approval: 'Approvals', 'first-run': 'Welcome', lobby: 'Lobby', chat: 'Chat with Nour', services: 'Services', wallet: 'Credits and wallet', settings: 'Settings' },
     tabs: { lobby: 'Lobby', chat: 'Chat', services: 'Services', wallet: 'Wallet', settings: 'Settings' },
     back: 'Back', theme: 'Switch light or dark',
     fr: {
@@ -79,7 +80,7 @@ export const T = {
   ar: {
     lang: 'ar', dir: 'rtl', other: 'en', otherName: 'English', otherLabel: 'التبديل إلى الإنجليزية',
     app: 'كوجناي', skip: 'انتقل إلى المحتوى', index: 'كل الشاشات',
-    titles: { 'first-run': 'مرحبا', lobby: 'الردهة', chat: 'محادثة مع نور', services: 'الخدمات', wallet: 'الرصيد والمحفظة', settings: 'الإعدادات' },
+    titles: { approval: 'الموافقات', 'first-run': 'مرحبا', lobby: 'الردهة', chat: 'محادثة مع نور', services: 'الخدمات', wallet: 'الرصيد والمحفظة', settings: 'الإعدادات' },
     tabs: { lobby: 'الردهة', chat: 'المحادثة', services: 'الخدمات', wallet: 'المحفظة', settings: 'الإعدادات' },
     back: 'رجوع', theme: 'التبديل بين الفاتح والداكن',
     fr: {
@@ -309,6 +310,136 @@ ${s.p.map((t, i) => `        <label class="switch" for="p${i}"><span>${t}</span>
 };
 
 
+// Approval flow: the same requests in every state, rendered by prototype/approval.mjs
+const AT = '2026-10-31T09:00:00Z';
+export const DEMO = {
+  en: {
+    pay: { id: 'pay', kind: 'pay', title: 'Research brief from Lina', to: 'Lina Haddad, Base 0x8f2c...41d0', amount: '25', currency: 'USDC', cost_credits: 1, reversible: false },
+    post: { id: 'post', kind: 'post', title: 'Friday newsletter', to: 'Your newsletter, 212 readers', content: '3 sections, 220 words, scheduled Friday 09:00', cost_credits: 4, reversible: true },
+    send: { id: 'send', kind: 'send', title: 'Reply to Omar', to: 'Omar, by email', content: 'Thanks Omar, Thursday at 10:00 works for me.', cost_credits: 0, reversible: false },
+    intro: 'Every action that sends, posts or pays shows what will happen and waits for your explicit yes. Here is one request of each kind, then one payment in every state.',
+    kinds: 'Waiting for your yes', states: 'Every state of a payment', live: 'Try it', liveHint: 'Press yes or no. The second time you press yes the payment fails, so you can see the failed state and the retry.',
+    reasons: { refused: 'You chose no', cancelled: 'Nour withdrew the request before you answered', failed: 'The payout address did not accept USDC on Base', receipt: 'Base tx 0x504e...6baa' },
+  },
+  ar: {
+    pay: { id: 'pay', kind: 'pay', title: 'ملخص بحثي من لينا', to: 'لينا حداد، Base 0x8f2c...41d0', amount: '25', currency: 'USDC', cost_credits: 1, reversible: false },
+    post: { id: 'post', kind: 'post', title: 'نشرة الجمعة', to: 'نشرتك، 212 قارئا', content: '3 أقسام و220 كلمة، مجدولة الجمعة 09:00', cost_credits: 4, reversible: true },
+    send: { id: 'send', kind: 'send', title: 'رد على عمر', to: 'عمر، بالبريد', content: 'شكرا عمر، الخميس 10:00 يناسبني.', cost_credits: 0, reversible: false },
+    intro: 'كل إجراء يرسل أو ينشر أو يدفع يعرض ما سيحدث وينتظر موافقتك الصريحة. هذا طلب من كل نوع، ثم دفعة واحدة في كل حالة.',
+    kinds: 'بانتظار موافقتك', states: 'كل حالات الدفعة', live: 'جربها', liveHint: 'اضغط نعم أو لا. في المرة الثانية التي تضغط فيها نعم تفشل الدفعة، لترى حالة الفشل وإعادة المحاولة.',
+    reasons: { refused: 'اخترت لا', cancelled: 'سحبت نور الطلب قبل أن تجيب', failed: 'عنوان الاستلام لم يقبل USDC على Base', receipt: 'Base tx 0x504e...6baa' },
+  },
+};
+export function flowIn(req, state, R) {
+  let f = createFlow(req, AT);
+  const by = { by: 'user', at: AT };
+  if (state === 'pending') return f;
+  if (state === 'refused') return transition(f, 'refuse', { ...by, reason: R.refused });
+  if (state === 'cancelled') return transition(f, 'cancel', { by: 'citizen', at: AT, reason: R.cancelled });
+  f = transition(f, 'approve', { ...by, digest: f.digest });
+  if (state === 'running') return f;
+  if (state === 'confirmed') return transition(f, 'succeed', { by: 'system', at: AT, receipt: R.receipt });
+  return transition(f, 'fail', { by: 'system', at: AT, reason: R.failed });
+}
+function approvalBody(L) {
+  const D = DEMO[L.lang], ar = L.lang === 'ar';
+  const card = (req, st, sfx = '') => renderApproval(flowIn(req, st, D.reasons), L.lang, { id: `${req.id}-${st}${sfx}` });
+  return `
+      <p class="muted">${D.intro}</p>
+      <section class="stack" aria-labelledby="h-kinds"><h2 class="h2" id="h-kinds">${D.kinds}</h2>
+${['pay', 'post', 'send'].map((k) => card(D[k], 'pending')).join('\n')}
+      </section>
+      <section class="stack" id="states" aria-labelledby="h-states"><h2 class="h2" id="h-states">${D.states}</h2>
+        <div class="gallery">${STATES.map((st) => card(D.pay, st, '-g')).join('\n')}</div>
+      </section>
+      <section class="stack" id="live" aria-labelledby="h-live"><h2 class="h2" id="h-live">${D.live}</h2>
+        <p class="hint">${D.liveHint}</p>
+        <div data-live-demo="${L.lang}" aria-live="polite">${card(D.pay, 'pending', '-live')}</div>
+      </section>
+      <script type="module">
+        import { createFlow, transition, execute, renderApproval } from '${ar ? '../' : ''}approval.mjs';
+        const box = document.querySelector('[data-live-demo]'), lang = box.dataset.liveDemo;
+        const req = ${JSON.stringify({ ...D.pay, id: 'pay-live' })};
+        let flow = createFlow(req), yesCount = 0;
+        const draw = () => { box.innerHTML = renderApproval(flow, lang); };
+        box.addEventListener('click', async (e) => {
+          const b = e.target.closest('[data-event]'); if (!b) return;
+          const ev = b.dataset.event;
+          if (ev === 'approve') { flow = transition(flow, 'approve', { by: 'user', digest: b.dataset.digest }); draw(); yesCount++;
+            await new Promise((r) => setTimeout(r, 900));
+            flow = await execute(flow, async () => { if (yesCount === 2) throw new Error(${JSON.stringify(D.reasons.failed)}); return ${JSON.stringify(D.reasons.receipt)}; });
+          } else if (ev === 'refuse') flow = transition(flow, 'refuse', { by: 'user' });
+          else flow = transition(flow, ev, { by: 'user' });
+          draw();
+        });
+        box.addEventListener('click', (e) => { if (e.target.closest('a.btn')) { e.preventDefault(); flow = createFlow(req); draw(); } });
+      </script>`;
+}
+
+function landingPage() {
+  const ex = renderApproval(createFlow(DEMO.en.pay, AT), 'en', { id: 'landing-pay' }).replace('href="chat.html"', 'href="first-run.html"');
+  return `${head('Gok, your citizen')}
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="app">
+    <header class="topbar">
+      <img class="avatar sm" src="assets/mark.svg" alt="Kognai" width="36" height="36">
+      <h1>Kognai<span class="sub">Gok, the citizen app</span></h1>
+      <button class="icon-btn" type="button" data-toggle-theme aria-label="Switch light or dark">${icon('moon')}</button>
+    </header>
+    <main id="main">
+      <section class="card hero landing-hero">
+        <img class="avatar lg" src="assets/citizen.svg" alt="Nour, a citizen: a friendly round face on a terracotta background" width="112" height="112">
+        <h2 class="display">Your citizen. Your yes.</h2>
+        <p>An AI agent with an identity, a memory and a constitution. It learns with you, creates for you and can earn for you, and it never sends, posts or pays without your yes.</p>
+        <div class="grid2"><a class="btn btn-primary" href="first-run.html">Meet your citizen</a><a class="btn btn-secondary" href="approval.html">See the approval flow</a></div>
+      </section>
+      <section class="stack" aria-labelledby="h-how"><h2 class="h2" id="h-how">How it works</h2>
+        <article class="card"><h3 class="h3">${icon('book')} Learn</h3><p class="small muted">Lessons paced to your evenings, in English or Arabic.</p></article>
+        <article class="card"><h3 class="h3">${icon('spark')} Create</h3><p class="small muted">Newsletters, stories and research briefs, with the cost shown first.</p></article>
+        <article class="card"><h3 class="h3">${icon('coin')} Earn</h3><p class="small muted">Offer your citizen on LAX and get paid in USDC on Base.</p></article>
+      </section>
+      <section class="stack" aria-labelledby="h-yes"><h2 class="h2" id="h-yes">${icon('shield')} Nothing moves without your yes</h2>
+        <p class="muted">This is what you see before your citizen pays anyone. The same card is used for sending and posting.</p>
+        ${ex}
+      </section>
+      <section class="card" id="join" aria-labelledby="h-join"><h2 class="h3" id="h-join">Get early access</h2>
+        <form class="stack" action="landing.html">
+          <div class="field"><label for="l-email">Email</label><input class="input" id="l-email" type="email" name="email" autocomplete="email" required></div>
+          <button class="btn btn-primary btn-block" type="submit">Join the waitlist</button>
+        </form>
+        <p class="small"><a href="teaser.html">Watch the teaser</a> <a href="index.html">All screens</a></p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
+`;
+}
+
+function teaserPage() {
+  return `${head('Gok is coming')}
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="app">
+    <main id="main">
+      <section class="stack teaser">
+        <img class="avatar lg" src="assets/mark.svg" alt="Kognai" width="112" height="112">
+        <p class="badge">Coming soon</p>
+        <h1 class="display">Gok</h1>
+        <p class="muted">A citizen that works for you, and always asks first.</p>
+        <div class="chips">${['pending', 'confirmed', 'refused'].map((s) => statusPill(s).replace(' role="status"', '')).join('')}</div>
+        <a class="btn btn-primary" href="landing.html#join">Get early access</a>
+        <button class="btn btn-ghost" type="button" data-toggle-theme>Switch light or dark</button>
+        <a class="small" href="index.html">All screens</a>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
+`;
+}
+
 const head = (title) => `<!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -340,7 +471,7 @@ function indexPage() {
         <div class="grid2"><a class="btn btn-primary" href="first-run.html">English</a><a class="btn btn-secondary" href="ar/first-run.html" lang="ar">العربية</a></div>
       </section>
       <section class="card" aria-labelledby="ds"><h2 class="h3" id="ds">Foundations</h2>
-        <ul class="list">${li('design-system.html', 'Design system', 'Tokens and components')}</ul>
+        <ul class="list">${li('design-system.html', 'Design system', 'Tokens and components')}${li('approval.html', 'Approval flow', 'Send, post, pay: every state')}${li('ar/approval.html', T.ar.titles.approval, 'approval', 'ar')}${li('landing.html', 'Landing page', 'Public page, same components')}${li('teaser.html', 'Teaser', 'Coming soon page')}</ul>
       </section>
       <section class="card" aria-labelledby="en"><h2 class="h3" id="en">Screens in English</h2>
         <ul class="list">${SCREENS.map((s) => li(`${s}.html`, names[s][0], names[s][1])).join('')}</ul>
@@ -406,6 +537,9 @@ function designSystemPage() {
         <div class="progress" role="progressbar" aria-label="Example progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40"><span style="width:40%"></span></div>
         <h3 class="h3">Chat bubbles</h3>
         <div class="thread"><div class="msg citizen"><p>Citizen message</p><span class="meta">19:42</span></div><div class="msg me"><p>My message</p><span class="meta">19:43</span></div></div>
+        <h3 class="h3">Approval states</h3>
+        <div class="chips">${STATES.map((st) => statusPill(st).replace(/ role="(status|alert)"/, '')).join('')}</div>
+        <p class="small"><a href="approval.html">Open the approval flow</a></p>
         <h3 class="h3">Avatar</h3>
         <div class="row"><img class="avatar sm" src="assets/citizen.svg" alt="Citizen avatar, small"><img class="avatar" src="assets/citizen.svg" alt="Citizen avatar, medium"><img class="avatar lg" src="assets/citizen.svg" alt="Citizen avatar, large"></div>
       </section>
@@ -428,12 +562,15 @@ function designSystemPage() {
 export function build() {
   writeFileSync(new URL('index.html', ROOT), indexPage());
   writeFileSync(new URL('design-system.html', ROOT), designSystemPage());
+  writeFileSync(new URL('landing.html', ROOT), landingPage());
+  writeFileSync(new URL('teaser.html', ROOT), teaserPage());
   mkdirSync(new URL('ar/', ROOT), { recursive: true });
   for (const L of [T.en, T.ar]) {
     for (const s of SCREENS) {
       const html = page(L, s, L.titles[s], S[s](L), { tabs: s !== 'first-run', backTo: s === 'chat' ? 'lobby' : null });
       writeFileSync(new URL(`${L.lang === 'ar' ? 'ar/' : ''}${s}.html`, ROOT), html);
     }
+    writeFileSync(new URL(`${L.lang === 'ar' ? 'ar/' : ''}approval.html`, ROOT), page(L, 'approval', L.titles.approval, approvalBody(L), { backTo: 'chat' }));
   }
 }
 
